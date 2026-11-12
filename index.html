@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#e6ddcd">
+<title>Help centre · Tsuru Paper Mill</title>
+<meta name="description" content="Questions, neatly folded. A help centre whose answers unfold like the handmade paper they are about.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/faq.css">
+<script>
+  // storage: versioned keys only (dv70.v1.open, dv70.v1.helpful); anything older is wiped. The theme is the page's own (light).
+  try {
+    const keep = ['dv70.v1.open', 'dv70.v1.helpful'];
+    for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && /^dv70/.test(k) && !keep.includes(k)) localStorage.removeItem(k); }
+  } catch (e) {}
+  if (/[?&]nogl\b/.test(location.search)) document.documentElement.classList.add('no-gl');
+  document.documentElement.classList.add('js');
+</script>
+</head>
+<body>
+<canvas class="wall" id="wall" aria-hidden="true"></canvas>
+<a class="skip" href="#q1">Skip to questions</a>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Tsuru Paper Mill home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 19 13 15 16 4 19 15 29 12 20 19 16 28 12 19Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M16 4v24M3 19h26" stroke="currentColor" stroke-width=".8" opacity=".5"/></svg>
+    <span>Tsuru <i>Paper Mill</i></span>
+  </a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Journal</a></li>
+      <li><a href="#" aria-current="page">Help</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="intro" aria-labelledby="h1">
+    <div class="crane-box" aria-hidden="true">
+      <canvas id="crane"></canvas>
+      <svg class="crane-svg" viewBox="0 0 420 300">
+        <defs>
+          <linearGradient id="cA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#eadfcc"/></linearGradient>
+          <linearGradient id="cB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9ccb5"/><stop offset="1" stop-color="#b7a68b"/></linearGradient>
+          <linearGradient id="cC" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8503a"/><stop offset="1" stop-color="#8f3424"/></linearGradient>
+          <linearGradient id="cD" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e46a4c"/><stop offset="1" stop-color="#b84630"/></linearGradient>
+          <filter id="cs" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+        </defs>
+        <ellipse cx="215" cy="268" rx="150" ry="13" fill="rgba(60,40,20,.28)" filter="url(#cs)"/>
+        <polygon points="210,178 120,28 236,160" fill="url(#cC)"/>
+        <polygon points="210,178 168,96 236,160" fill="#7a2c1e" opacity=".55"/>
+        <polygon points="96,104 70,96 160,190 176,190" fill="url(#cB)"/>
+        <polygon points="150,186 210,152 278,186 212,214" fill="url(#cA)"/>
+        <polygon points="150,186 212,214 214,250" fill="#cbbb9f"/>
+        <polygon points="278,186 212,214 214,250" fill="#e2d6c1"/>
+        <polygon points="262,184 372,92 288,196" fill="url(#cA)"/>
+        <polygon points="262,184 372,92 340,140" fill="#d6c8b0"/>
+        <polygon points="212,170 330,18 262,178" fill="url(#cD)"/>
+        <polygon points="212,170 286,74 262,178" fill="#f28a68" opacity=".55"/>
+      </svg>
+    </div>
+    <p class="k">Help centre</p>
+    <h1 id="h1">Questions,<br><em>neatly</em> folded.</h1>
+    <p class="lede">Everything about ordering, shipping and returns for our handmade paper goods. Tap a question and it opens like the paper it is.</p>
+  </section>
+
+  <section class="stage" id="stage" aria-labelledby="faq-h">
+    <h2 class="sr" id="faq-h">Frequently asked questions</h2>
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <div class="faq" id="faq">
+      <div class="item" data-i="0">
+        <h3 class="qh"><button class="q" id="q1" type="button" aria-expanded="false" aria-controls="a1"><span class="n" aria-hidden="true">01</span><span class="t">How long does shipping take?</span><span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></button></h3>
+        <div class="ans" id="a1" role="region" aria-labelledby="q1" hidden>
+          <div class="ans-in">
+            <p>Orders leave our studio within two working days, wrapped in our own offcuts.</p>
+            <p>Within the EU most parcels arrive in three to five days; worldwide, seven to ten. Every parcel is tracked.</p>
+            <div class="help" data-i="0"><span class="hq">Helpful?</span><button type="button" data-v="yes" aria-pressed="false">Yes</button><button type="button" data-v="no" aria-pressed="false">No</button><span class="thanks" role="status"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="item" data-i="1">
+        <h3 class="qh"><button class="q" id="q2" type="button" aria-expanded="false" aria-controls="a2"><span class="n" aria-hidden="true">02</span><span class="t">Is the paper really handmade?</span><span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></button></h3>
+        <div class="ans" id="a2" role="region" aria-labelledby="q2" hidden>
+          <div class="ans-in">
+            <p>Yes. Every sheet is pulled by hand from cotton rag and recycled linen in our mill in Kyoto, then pressed and dried for three days. No two sheets have the same deckle edge.</p>
+            <p>Hold a sheet to the window and you will see it: a crane, pressed into the fibres while the paper was still wet. It is how we sign our work.</p>
+            <div class="help" data-i="1"><a class="mill" href="#mill">Visit the mill <svg viewBox="0 0 20 12" aria-hidden="true"><path d="M1 6h17M13 1l5 5-5 5"/></svg></a><span class="hq">Helpful?</span><button type="button" data-v="yes" aria-pressed="false">Yes</button><button type="button" data-v="no" aria-pressed="false">No</button><span class="thanks" role="status"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="item" data-i="2">
+        <h3 class="qh"><button class="q" id="q3" type="button" aria-expanded="false" aria-controls="a3"><span class="n" aria-hidden="true">03</span><span class="t">Can I return an opened set?</span><span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></button></h3>
+        <div class="ans" id="a3" role="region" aria-labelledby="q3" hidden>
+          <div class="ans-in">
+            <p>Unused sheets can come back within 30 days for a full refund. Opened sets are fine too, as long as the sheets are flat and unwritten.</p>
+            <div class="help" data-i="2"><span class="hq">Helpful?</span><button type="button" data-v="yes" aria-pressed="false">Yes</button><button type="button" data-v="no" aria-pressed="false">No</button><span class="thanks" role="status"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="item" data-i="3">
+        <h3 class="qh"><button class="q" id="q4" type="button" aria-expanded="false" aria-controls="a4"><span class="n" aria-hidden="true">04</span><span class="t">Do you print custom stationery?</span><span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></button></h3>
+        <div class="ans" id="a4" role="region" aria-labelledby="q4" hidden>
+          <div class="ans-in">
+            <p>We letterpress names, monograms and short lines of text on any card in the shop. A proof comes back within 48 hours, and nothing is printed until you approve it.</p>
+            <div class="help" data-i="3"><span class="hq">Helpful?</span><button type="button" data-v="yes" aria-pressed="false">Yes</button><button type="button" data-v="no" aria-pressed="false">No</button><span class="thanks" role="status"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="item" data-i="4">
+        <h3 class="qh"><button class="q" id="q5" type="button" aria-expanded="false" aria-controls="a5"><span class="n" aria-hidden="true">05</span><span class="t">Which pens work on cotton paper?</span><span class="soon" aria-hidden="true">Coming soon</span><span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></button></h3>
+        <div class="ans" id="a5" role="region" aria-labelledby="q5" hidden>
+          <div class="ans-in">
+            <p>Fountain pens, gel pens and pencil all behave beautifully. Very wet nibs may feather a little on the softest sheets, so try a corner first.</p>
+            <div class="help" data-i="4"><span class="hq">Helpful?</span><button type="button" data-v="yes" aria-pressed="false">Yes</button><button type="button" data-v="no" aria-pressed="false">No</button><span class="thanks" role="status"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="slices" id="slices" aria-hidden="true" inert></div>
+    </div>
+  </section>
+</main>
+
+<footer class="cap"><b>05 · Origami FAQ</b><span>Accordion FAQ of folded paper</span><i>Each answer unfolds in 3D, with real paper shading and crease lines.</i></footer>
+<div class="brandmark" aria-hidden="true">Code with Ulvi</div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
